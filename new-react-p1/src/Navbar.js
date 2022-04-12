@@ -1,20 +1,19 @@
 import React from 'react';
 
-class Navbar extends React.Component{
+const Navbar=(props)=>{
        
 
-    render (){
-   
-        return (
-            <div style={styles.nav}>
-                <div style={styles.cartIconContainer}>
-                    <img style={styles.cartIcon} src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png"/>
-                    <span style={styles.cartCount}>3</span>
-                </div>
+     
+    return (
+        <div style={styles.nav}>
+            <div style={styles.cartIconContainer}>
+                <img style={styles.cartIcon} src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png"/>
+                <span style={styles.cartCount}>{props.totalCount}</span>
             </div>
-        )
-    }
+        </div>
+    )
 }
+
 const styles = {
     cartIcon: {
       height: 32,
