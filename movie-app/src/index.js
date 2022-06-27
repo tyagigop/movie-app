@@ -10,11 +10,17 @@ const store= legacy_createStore(movies);
 console.log(store);
 console.log("state",store.getState());
 
+// store.dispatch({
+//         type: 'ADD MOVIES',
+//         movies: [{name: 'superman'}]
+// })
+// console.log("state",store.getState());
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App store={store} />
   </React.StrictMode>
 );
 

@@ -1,11 +1,29 @@
 
+import React from 'react'
 // import './App.css';
 
 import { data } from "../data";
 import MovieCard from "./MovieCard";
 import Navbar from "./Navbar";
 
-function App() {
+class App extends React.Component{
+  componentDidMount(){
+      const {store}=this.props;
+      store.subscribe(()=>{
+        console.log('updated');
+        this.forceUpdate();
+
+      })
+
+    store.dispatch({
+      type: 'ADD MOVIES',
+      movies: data
+    });
+    console.log('State',this.props.store.getState());
+  }
+  render(){
+    console.log('render')
+  const movies=this.props.store.getState();
   return (
     <div className="App">
       <Navbar/>
@@ -15,14 +33,15 @@ function App() {
           <div className="tab">Favourites</div>
         </div>
         <div className="list">
-          {data.map(movie=>(
-            <MovieCard movie={movie}/>
+          {movies.map((movie,index)=>(
+            <MovieCard movie={movie} key={index}/>
           ))}
         </div>
 
       </div>
     </div>
   );
+}
 }
 
 export default App;
