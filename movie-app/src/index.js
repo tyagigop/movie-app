@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {legacy_createStore } from 'redux';
 import movies from './reducers';
 
+
 const store= legacy_createStore(movies);
 console.log(store);
 console.log("state",store.getState());
